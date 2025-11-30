@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Note{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="p-4 border rounded-4 shadow bg-white" style="max-width:600px; margin:auto;">
+
+    <h3 class="mb-3">
+      {% if note %}
+        Edit Note
+      {% else %}
+        Create Note
+      {% endif %}
+    </h3>
+
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" name="title"
+               class="form-control"
+               value="{% if note %}{{ note.title }}{% endif %}"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Content</label>
+        <textarea name="content" class="form-control" rows="6" required>
+{% if note %}{{ note.content }}{% endif %}
+        </textarea>
+      </div>
+
+      <button class="btn btn-success w-100">
+        {% if note %}Save Changes{% else %}Create Note{% endif %}
+      </button>
+    </form>
+
+    {% if note %}
+    <a href="{{ url_for('delete_note', note_id=note.id) }}"
+       class="btn btn-danger w-100 mt-3">
+      Delete Note
+    </a>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}

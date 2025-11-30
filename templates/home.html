@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Your Notes{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+
+  <div class="d-flex justify-content-end mb-3">
+    <a href="{{ url_for('note', note_id=0) }}">
+      <button class="btn btn-primary">+ Add Note</button>
+    </a>
+  </div>
+
+  {% for note in notes %}
+  <a href="{{ url_for('note', note_id=note.id) }}" style="text-decoration:none; color:black;">
+    <div class="notes-container">
+      <div class="notes-box">
+        <h5>{{ note.title }}</h5>
+        <p class="text-muted small">{{ note.date }}</p>
+      </div>
+    </div>
+  </a>
+  {% else %}
+  <p class="text-center text-muted mt-4">No notes yet. Create your first note.</p>
+  {% endfor %}
+
+</div>
+{% endblock %}

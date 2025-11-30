@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height:80vh;">
+  <div class="p-4 border rounded-4 shadow bg-white" style="width:350px;">
+    <h3 class="text-center mb-3">Register</h3>
+
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+
+      <button class="btn btn-success w-100">Register</button>
+
+      <p class="text-center mt-3">
+        <a href="{{ url_for('login') }}">Already have an account? Login</a>
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}

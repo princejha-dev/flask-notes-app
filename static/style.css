@@ -1,0 +1,22 @@
+body { background: #f4f4f4; }
+
+    .notes-container {
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .notes-box {
+      width: 100%;
+      padding: 15px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .notes-box:hover {
+      background: #fafafa;
+    }
